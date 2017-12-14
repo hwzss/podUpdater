@@ -1,12 +1,9 @@
 
-# puts "打印_FILE_#{__FILE__}"
-lib = File.expand_path('../', __FILE__)
-# puts "打印lib:"
-# puts lib
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+# lib = File.expand_path('../', __FILE__)
+# $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 require "podUpdater/version"
-require "podUpdater/git_tag_flow"
+require "podUpdater/pod_push"
 
 
 module PodUpdater

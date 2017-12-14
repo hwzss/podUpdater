@@ -23,5 +23,5 @@ module PodUpdater
 
 	end
 
-	
+	module_function :git_tag_flow
 end
