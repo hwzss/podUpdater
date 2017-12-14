@@ -1,9 +1,15 @@
 
-require "git_tag_flow"
-require "modifyPodspec"
+# require "/Users/qwkj/Documents/WZ_GitHub/podUpdater/podUpdater/lib/podUpdater/git_tag_flow.rb"
+# require "/Users/qwkj/Documents/WZ_GitHub/podUpdater/podUpdater/lib/podUpdater/modify_podspec.rb"
+require "podUpdater/git_tag_flow"
+require "podUpdater/modify_podspec"
 
 module PodUpdater
 
+	def sayHi
+		puts "heiehieheihehie"
+		aPath = File.expand_path('./');puts "哈哈哈#{aPath}"
+	end
 		# 给定pod库项目的路径，以及新版pod库的版本，将自己的pod提交到git,然后打上tag，再push trunk到pod服务器去
 	def pushPodToSevice(path,version)
 		# FOR_DEBUG:
@@ -33,4 +39,7 @@ module PodUpdater
 		end
 		
 	end
+
+	module_function :pushPodToSevice
+	module_function :sayHi
 end

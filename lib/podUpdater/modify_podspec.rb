@@ -41,4 +41,50 @@ module PodUpdater
 		end	
 		
 	end
+
+		# 找到指定路径下的podspec文件名
+	def pathWithPodspecSuffix(path)
+
+		# path = "/Users/qwkj/Desktop/IOS_Pod_Spec_Repo/千网PodRepo/QWCrashReporter/1.0.8/"
+		path = File.expand_path(path)
+		return nil unless File.exist?(path)
+
+		unless path =~ /.podspec$/
+
+			if File.directory?(path)
+				podfiles = Dir.glob("#{path}/*.podspec")
+				puts "#{podfiles}"
+				if podfiles.length == 0
+					puts %('#{path}'下无法找到'.podspec'文件)
+					return nil
+				elsif podfiles.length == 1
+					path = podfiles.first
+				else
+					puts "目录下找到多个podspec文件！"
+					podfiles.each_with_index do |elem, index|
+						basename = File.basename(elem)
+						puts %(#{index}.#{basename} )
+					end
+					puts "请指定您当前需要的操作的文件,输入它的序号:"
+					i = gets.to_i
+
+					case i
+					when 0 .. (podfiles.length-1)
+						path = podfiles[i.to_i]	
+					else
+						puts "输入错误❌"
+						path = nil
+					end
+					
+				end
+			end
+		end
+
+		path
+
+	end
+
+	module_function :pathWithPodspecSuffix
+	module_function :modifyPodspec
+
 end

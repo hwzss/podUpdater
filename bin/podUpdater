@@ -2,6 +2,6 @@
 
 require "podUpdater.rb"
 
-include PodUpdater
 
-puts "哈哈"
+PodUpdater.run(ARGV[0])
+
