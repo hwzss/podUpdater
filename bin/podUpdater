@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require "podUpdater.rb"
+
+include PodUpdater
+
+puts "哈哈"

@@ -1,5 +1,9 @@
 require "podUpdater/version"
+require "podUpdater/pod_push"
 
 module PodUpdater
-  # Your code goes here...
+  
+  path = Dir.pwd;
+  pushPodToSevice(path,'1.0.3')
+  
 end
